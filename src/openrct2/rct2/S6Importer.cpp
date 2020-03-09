@@ -467,7 +467,7 @@ public:
         // This one is less harmful, no need to assert for it ~janisozaur
         if (disjoint_sprites_count > 0)
         {
-            log_error("Found %d disjoint null sprites", disjoint_sprites_count);
+            log_verbose("Found %d disjoint null sprites", disjoint_sprites_count);
         }
 
         if (String::Equals(_s6.scenario_filename, "Europe - European Cultural Festival.SC6"))

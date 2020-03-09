@@ -157,7 +157,7 @@ void S6Exporter::Export()
     // This one is less harmful, no need to assert for it ~janisozaur
     if (disjoint_sprites_count > 0)
     {
-        log_error("Found %d disjoint null sprites", disjoint_sprites_count);
+        log_verbose("Found %d disjoint null sprites", disjoint_sprites_count);
     }
     _s6.info = gS6Info;
     {
