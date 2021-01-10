@@ -166,7 +166,7 @@ STR_2093    :Donut
 
 STR_2353    :{WINDOW_COLOUR_2}Rubbish swept: {BLACK}{COMMA16}
 STR_2354    :{WINDOW_COLOUR_2}Trash bins emptied: {BLACK}{COMMA16}
-STR_2357	:{WINDOW_COLOUR_2}Vomit swept: {BLACK}{COMMA16}
+STR_2526	:{WINDOW_COLOUR_2}Vomit swept: {BLACK}{COMMA16}
 
 STR_2707    :Use system dialog window
 

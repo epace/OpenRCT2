@@ -714,6 +714,7 @@ struct Peep : SpriteBase
     {
         ride_id_t VoucherRideId;
         ShopItemIndex VoucherShopItem;
+        uint16_t StaffVomitSwept;
     };
     uint8_t SurroundingsThoughtTimeout;
     uint8_t Angriness;
@@ -725,7 +726,6 @@ struct Peep : SpriteBase
     ride_id_t FavouriteRide;
     uint8_t FavouriteRideRating;
     uint64_t ItemFlags;
-    uint16_t StaffVomitSwept;
 
 public: // Peep
     Guest* AsGuest();
