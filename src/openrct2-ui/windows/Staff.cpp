@@ -670,9 +670,9 @@ void window_staff_stats_mouseup(rct_window* w, rct_widgetindex widgetIndex)
 void window_staff_stats_resize(rct_window* w)
 {
     w->min_width = 190;
-    w->max_width = 190;
-    w->min_height = 126;
-    w->max_height = 126;
+    w->max_width = 190; 
+    w->min_height = 140;
+    w->max_height = 140;
 
     if (w->width < w->min_width)
     {
@@ -1110,6 +1110,16 @@ void window_staff_stats_paint(rct_window* w, rct_drawpixelinfo* dpi)
     {
         case StaffType::Handyman:
             ft = Formatter();
+            ft.Add<uint16_t>(peep->StaffLitterSwept);
+            gfx_draw_string_left(dpi, STR_STAFF_STAT_LITTER_SWEPT, ft.Data(), COLOUR_BLACK, screenCoords);
+            screenCoords.y += LIST_ROW_HEIGHT;
+
+            ft = Formatter();
+            ft.Add<uint16_t>(peep->StaffVomitSwept);
+            gfx_draw_string_left(dpi, STR_STAFF_STAT_VOMIT_SWEPT, ft.Data(), COLOUR_BLACK, screenCoords);
+            screenCoords.y += LIST_ROW_HEIGHT;
+
+            ft = Formatter();
             ft.Add<uint16_t>(peep->StaffLawnsMown);
             gfx_draw_string_left(dpi, STR_STAFF_STAT_LAWNS_MOWN, ft.Data(), COLOUR_BLACK, screenCoords);
             screenCoords.y += LIST_ROW_HEIGHT;
@@ -1120,13 +1130,9 @@ void window_staff_stats_paint(rct_window* w, rct_drawpixelinfo* dpi)
             screenCoords.y += LIST_ROW_HEIGHT;
 
             ft = Formatter();
-            ft.Add<uint16_t>(peep->StaffLitterSwept);
-            gfx_draw_string_left(dpi, STR_STAFF_STAT_LITTER_SWEPT, ft.Data(), COLOUR_BLACK, screenCoords);
-            screenCoords.y += LIST_ROW_HEIGHT;
-
-            ft = Formatter();
             ft.Add<uint16_t>(peep->StaffBinsEmptied);
             gfx_draw_string_left(dpi, STR_STAFF_STAT_BINS_EMPTIED, ft.Data(), COLOUR_BLACK, screenCoords);
+
             break;
         case StaffType::Mechanic:
             ft = Formatter();

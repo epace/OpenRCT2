@@ -369,6 +369,7 @@ void Staff::ResetStats()
         peep->StaffGardensWatered = 0;
         peep->StaffRidesInspected = 0;
         peep->StaffLitterSwept = 0;
+        peep->StaffVomitSwept = 0;
         peep->StaffBinsEmptied = 0;
     }
 }
@@ -1358,9 +1359,24 @@ void Staff::UpdateSweeping()
 
     if (Action == PeepActionType::StaffSweep && ActionFrame == 8)
     {
+        int vomitCount = 0;
+        int litterCount = 0;
+
+        auto quad = EntityTileList<Litter>({ x, y });
+        for (auto litter : quad)
+        {
+            if (litter->type == LITTER_TYPE_SICK || litter->type == LITTER_TYPE_SICK_ALT)
+                vomitCount++;
+            else
+                litterCount++;
+        }
+            
         // Remove sick at this location
         litter_remove_at({ x, y, z });
-        StaffLitterSwept++;
+
+        StaffVomitSwept += vomitCount;
+        StaffLitterSwept += litterCount;
+
         WindowInvalidateFlags |= PEEP_INVALIDATE_STAFF_STATS;
     }
     if (auto loc = UpdateAction())
