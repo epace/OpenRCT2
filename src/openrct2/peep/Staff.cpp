@@ -974,7 +974,7 @@ bool Staff::DoMiscPathFinding()
  *
  *  rct2: 0x006C086D
  */
-void Staff::EntertainerUpdateNearbyPeeps() const
+void Staff::EntertainerUpdateNearbyPeeps()
 {
     for (auto guest : EntityList<Guest>(EntityListId::Peep))
     {
@@ -996,10 +996,14 @@ void Staff::EntertainerUpdateNearbyPeeps() const
 
         if (guest->State == PeepState::Walking)
         {
+            if (guest->HappinessTarget < PEEP_MAX_HAPPINESS)
+                StaffHugsGiven++;
             guest->HappinessTarget = std::min(guest->HappinessTarget + 4, PEEP_MAX_HAPPINESS);
         }
         else if (guest->State == PeepState::Queuing)
         {
+            if (guest->HappinessTarget < PEEP_MAX_HAPPINESS)
+                StaffHugsGiven++;
             guest->TimeInQueue = std::max(0, guest->TimeInQueue - 200);
             guest->HappinessTarget = std::min(guest->HappinessTarget + 3, PEEP_MAX_HAPPINESS);
         }

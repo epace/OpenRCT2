@@ -1140,6 +1140,10 @@ void window_staff_stats_paint(rct_window* w, rct_drawpixelinfo* dpi)
             break;
         case StaffType::Security:
         case StaffType::Entertainer:
+            ft = Formatter();
+            ft.Add<uint16_t>(peep->StaffHugsGiven);
+            gfx_draw_string_left(dpi, STR_STAFF_STAT_ENTERTAINER_HUGS_GIVEN, ft.Data(), COLOUR_BLACK, screenCoords);
+            break;
         case StaffType::Count:
             break;
     }

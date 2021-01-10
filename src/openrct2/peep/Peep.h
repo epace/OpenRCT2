@@ -694,6 +694,7 @@ struct Peep : SpriteBase
         money16 PaidOnRides;
         uint16_t StaffGardensWatered;
         uint16_t StaffRidesInspected;
+        uint16_t StaffHugsGiven;
     };
     union
     {
@@ -915,7 +916,7 @@ private:
 
     Direction HandymanDirectionRandSurface(uint8_t validDirections) const;
 
-    void EntertainerUpdateNearbyPeeps() const;
+    void EntertainerUpdateNearbyPeeps();
 
     uint8_t GetValidPatrolDirections(const CoordsXY& loc) const;
     Direction HandymanDirectionToNearestLitter() const;
