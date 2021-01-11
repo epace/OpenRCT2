@@ -1143,6 +1143,7 @@ void window_staff_stats_paint(rct_window* w, rct_drawpixelinfo* dpi)
             ft.Add<uint16_t>(peep->StaffVandalismPrevented);
             gfx_draw_string_left(dpi, STR_STAFF_STAT_VANDALISM_PREVENTED, ft.Data(), COLOUR_BLACK, screenCoords);
             screenCoords.y += LIST_ROW_HEIGHT;
+            break;
         case StaffType::Entertainer:
         case StaffType::Count:
             break;
